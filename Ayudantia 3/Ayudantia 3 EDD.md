@@ -14,9 +14,121 @@ Carlos Lagos - carlos.lagosc@usm.cl
 ## Tipos de Datos Abstractos
 
 ---
+
 <!-- _header: Tipos de Datos Abstractos  --->
 
+Debes crear una clase que modele un proyecto. Este proyecto incluye una lista de tareas, cada una con un nombre, estado y cantidad de horas requeridas. La implementación debe utilizar memoria dinámica para representar la lista de tareas, y asegurarse de liberar esa memoria correctamente en el destructor de la clase. Además, la clase debe permitir agregar nuevas tareas, listar las existentes y marcar una tarea como terminada.
 
+---
+
+<!-- _header: Tipos de Datos Abstractos  --->
+
+```c++
+struct Tarea {
+    string nombre;
+    bool estado; // Verdadero si está activa
+    int horas;
+};
+```
+
+El struct Tarea representa una tarea dentro de un proyecto. Cada tarea tiene un nombre que describe la actividad a realizar, un estado que indica si la tarea está activa o no, siendo verdadero si está activa, y un número entero que representa la cantidad de horas estimadas para completar la tarea.
+
+---
+<!-- _header: Tipos de Datos Abstractos  --->
+
+```c++
+class Proyecto {
+  private:
+    int cantidad_de_tareas;
+    int cantidad_maxima_de_tareas;
+    Tarea* tareas;
+
+  public:
+    // Constructor de la clase, recibe la cantidad máxima de tareas
+    Proyecto(int cantidad_maxima);
+    // Destructor de la clase
+    ~Proyecto();
+    // Crea una nueva tarea y retorna la posición en la que se asigna
+    int agregarTarea(string nombre , int horas);
+    // Imprime todas las tareas
+    void listarTareas();
+    // Marca una tarea en cierta posición como terminada, en caso que exista
+    void marcarTareaComoTerminada(int posicion);
+};
+```
+
+---
+<style scoped>
+*{font-size:25px;}
+</style>
+<!-- _header: Tipos de Datos Abstractos  --->
+
+El constructor recibe la cantidad máxima de tareas y define una lista de Tareas de largo 'cantidad_maxima' usando memoria dinámica. Además, guarda la cantidad máxima y asigna 0 a la cantidad de tareas actuales.
+```c++
+Proyecto::Proyecto(int cantidad_maxima){
+  tareas = new Tarea[cantidad_maxima];
+  cantidad_maxima_de_tareas = cantidad_maxima;
+  cantidad_de_tareas = 0;
+}
+```
+El destructor elimina la memoria dinámica asignada a la lista de tareas. Entonces se llamará automáticamente al borrarse la clase en el stack.
+```c++
+Proyecto::~Proyecto(){
+    delete[] tareas;
+}
+```
+
+---
+
+<style scoped>
+*{font-size:28px;}
+</style>
+
+<!-- _header: Tipos de Datos Abstractos  --->
+
+La siguiente función, agregarTarea, añade una nueva tarea a la lista del proyecto. Si el límite de tareas ha sido alcanzado, devuelve -1. En caso contrario, asigna el nombre y las horas proporcionadas a la nueva tarea, estableciendo su estado como activo. Finalmente, devuelve la posición de la nueva tarea en la lista.
+
+```c++
+int Proyecto::agregarTarea(string nombre, int horas){
+    if(cantidad_maxima_de_tareas == cantidad_de_tareas){
+        return -1;
+    }
+    tareas[cantidad_de_tareas].nombre = nombre;
+    tareas[cantidad_de_tareas].horas = horas;
+    tareas[cantidad_de_tareas].estado = true;
+    int posicion = cantidad_de_tareas++;
+    return posicion;
+}
+```
+---
+
+
+<style scoped>
+*{font-size:25px;}
+</style>
+
+<!-- _header: Tipos de Datos Abstractos  --->
+
+Este método recorre la lista de tareas y muestra en pantalla el nombre, estado (activo o inactivo) y la cantidad de horas estimadas para cada tarea del proyecto.
+
+```c++
+void Proyecto::listarTareas(){
+    for(int i = 0; i < cantidad_de_tareas; i++){
+        cout << tareas[i].nombre << " " << tareas[i].estado << " " << tareas[i].horas << endl;
+    }
+}
+```
+
+Este método permite marcar una tarea específica como terminada, cambiando su estado de activo a inactivo. Se especifica la posición de la tarea que se desea marcar como terminada.
+
+```c++
+void Proyecto::marcarTareaComoTerminada(int posicion){
+    if(posicion < 0 || posicion >= cantidad_de_tareas){
+        return;
+    }
+    tareas[posicion].estado = false;
+}
+```
 
 ---
 
