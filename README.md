@@ -5,3 +5,5 @@
 * Optmizaciones del problema 2.1:
     * $O(N^2)$: [https://ideone.com/OJJuH8](https://ideone.com/OJJuH8)
     * $O(N)$: [https://ideone.com/S3xumC](https://ideone.com/S3xumC)
+## Ayudantía 2
+* PPT en la carpeta 'Ayudantia 2'
