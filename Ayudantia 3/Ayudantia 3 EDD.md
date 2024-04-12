@@ -146,11 +146,11 @@ O(g(n)) = \{f(n) : \text{existen constantes } c > 0 \text{ y } n_0 \text{ tales 
 $$
 
 $$
-0 \leq f(n) \leq cg(n) \text{ para todo } n \geq n_0\}
+0 \leq f(n) \leq c \cdot g(n) \text{ para todo } n \geq n_0\}
 $$
 
 
-Esto significa que una función $f(n)$ pertenece a $O(g(n))$ si existe una constante positiva $c$ y un valor de $n_0$ a partir del cual $f(n)$ siempre es menor o igual a $cg(n)$. Es decir, $f(n)$ no crece más rápido que una constante múltiplo de $g(n)$.
+Esto significa que una función $f(n)$ pertenece a $O(g(n))$ si existe una constante positiva $c$ y un valor de $n_0$ a partir del cual $f(n)$ siempre es menor o igual a $c \cdot g(n)$. Es decir, $f(n)$ no crece más rápido que una constante múltiplo de $g(n)$.
 
 ---
 <!-- _header: Análisis de algoritmos --->
