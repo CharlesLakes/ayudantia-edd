@@ -6,4 +6,4 @@ El mejor y peor caso en el ámbito académico siempre va a depender de lo que qu
 
 Para el mejor caso se podría considerar tanto un n igual a 1 o un caso general (cuando el arreglo está ordenado). El que nos sirve más y nos brinda más información es cuando el arreglo está ordenado debido a que es un caso más general. En este ejercicio tanto el mejor y peor caso es O(N^2). Este código es similar a bubble sort pero en este, cuando el arreglo está ordenado la complejidad es O(n).
 
-PD: Lo tenía listo pero se me habia olvidado hacer push al repositorio :sad:
+PD: Lo tenía listo pero se me habia olvidado hacer push al repositorio :(
