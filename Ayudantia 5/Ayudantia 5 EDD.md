@@ -66,12 +66,12 @@ Representa el proceso de las siguientes operaciones en dos tipos de estructuras 
 2. Lista enlazada.
 
 Operaciones:
-- `$moveToStart()$`
-- `$insert(100)$`
-- `$moveToPos(4)$`
-- `$erase()$`
-- `$next()$`
-- `$insert(-1)$`
+* `$moveToStart()$`
+* `$insert(100)$`
+* `$moveToPos(4)$`
+* `$erase()$`
+* `$next()$`
+* `$insert(-1)$`
 
 Ilustra estos procesos para entender cómo cada estructura de datos gestiona las operaciones mencionadas.
 
