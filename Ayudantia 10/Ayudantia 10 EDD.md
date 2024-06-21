@@ -56,6 +56,53 @@ Carlos Lagos - carlos.lagosc@usm.cl
 
 ---
 
+<!-- _header: Grafos --->
+## TDA
+```c++
+class tGrafo {
+    private:
+        // Datos miembro privados
+    public:
+        // Constructor
+        tGrafo(int n); // Constructor que inicializa el grafo con 'n' vértices
+
+        // Métodos públicos
+        int nVertex(); // Retorna el número de vértices en el grafo
+        int nEdges(); // Retorna el número de arcos en el grafo
+        tVertice first(tVertice v); // Devuelve el primer vecino del vértice 'v'
+        tVertice next(tVertice v, tVertice w); // Devuelve el siguiente vecino del vértice 'v' después de 'w'
+        void setEdge(tVertice v1, tVertice v2, int peso); // Agrega un nuevo arco con peso entre los vértices 'v1' y 'v2'
+        void deleteEdge(tVertice v1, tVertice v2); // Borra el arco existente entre los vértices 'v1' y 'v2'
+        int isEdge(tVertice v1, tVertice v2); // Indica si existe un arco entre los vértices 'v1' y 'v2'
+        int weight(tVertice v1, tVertice v2); // Retorna el peso del arco entre los vértices 'v1' y 'v2'
+        int getMark(tVertice v); // Retorna la marca asignada al vértice 'v'
+        void setMark(tVertice v, int marca); // Asigna una marca al vértice 'v'
+};
+```
+
+
+---
+
+<!-- _header: Algoritmos en Grafos --->
+
+## DFS (Depth-First Search)
+
+- **Descripción**: Explora los nodos en profundidad antes de retroceder.
+- **Complejidad**: O(V + E)
+
+```c++
+void DFS(tGrafo& G, tVertice v) {
+    tVertice w;
+    visitar(G, v);
+    G.setMark(v, VISITADO);
+    for (w = G.first(v); w < G.nVertex(); w = G.next(v, w))
+        if (G.getMark(w) == NOVISITADO)
+            DFS(G, w);
+}
+```
+
+---
+
 <!-- _header: Algoritmos en Grafos --->
 
 ## BFS (Breadth-First Search)
@@ -83,26 +130,6 @@ void BFS(tGrafo& G, tVertice v) {
             Q.enqueue(w);
         }
     }
-}
-```
-
----
-
-<!-- _header: Algoritmos en Grafos --->
-
-## DFS (Depth-First Search)
-
-- **Descripción**: Explora los nodos en profundidad antes de retroceder.
-- **Complejidad**: O(V + E)
-
-```c++
-void DFS(tGrafo& G, tVertice v) {
-    tVertice w;
-    visitar(G, v);
-    G.setMark(v, VISITADO);
-    for (w = G.first(v); w < G.nVertex(); w = G.next(v, w))
-        if (G.getMark(w) == NOVISITADO)
-            DFS(G, w);
 }
 ```
 
