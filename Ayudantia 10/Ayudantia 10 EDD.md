@@ -10,8 +10,8 @@ Carlos Lagos - carlos.lagosc@usm.cl
 
 ---
 
+<!-- _header: Introducción a los Grafos --->
 
-# Introducción a los Grafos
 
 - **Grafo**: Conjunto de nodos (vértices) y aristas (enlaces) que conectan los nodos.
 - **Tipos de Grafos**:
