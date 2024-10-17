@@ -5,7 +5,7 @@ theme: academic
 ---
 
 <!-- _class: lead -->
-# Ayudantía 3
+# Ayudantía 4
 Carlos Lagos - carlos.lagosc@usm.cl
 
 ---
